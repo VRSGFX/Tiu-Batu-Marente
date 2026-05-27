@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Tiu Batu Caffe & Homestay | Hidden Paradise Near The River</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #071a14;
+      color: #e9f5e9;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0a2a1f;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #9baf87;
+      border-radius: 10px;
+    }
+
+    /* Navbar */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      backdrop-filter: blur(20px);
+      background: rgba(7, 26, 20, 0.85);
+      border-bottom: 1px solid rgba(210, 200, 150, 0.15);
+      z-index: 1000;
+      padding: 1.2rem 2rem;
+      transition: all 0.3s ease;
+    }
+    .navbar.scrolled {
+      padding: 0.7rem 2rem;
+      background: rgba(7, 26, 20, 0.96);
+    }
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .logo h2 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 800;
+      font-size: 1.8rem;
+      background: linear-gradient(135deg, #e8e0b0, #a8c99e);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: #f0f7f0;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: 0.3s;
+    }
+    .nav-links a:hover {
+      color: #c8e6b5;
+    }
+    .menu-icon {
+      display: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 700px;
+      background-image: url('https://files.catbox.moe/74em5d.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(0,20,10,0.5), rgba(0,10,5,0.6));
+    }
+    .hero-content {
+      position: relative;
+      max-width: 900px;
+      padding: 0 1.5rem;
+      z-index: 2;
+      animation: fadeUp 1s ease-out;
+    }
+    .hero-content h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      font-weight: 800;
+      text-shadow: 0 5px 25px rgba(0,0,0,0.5);
+      background: linear-gradient(135deg, #fff, #d4e0b5);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+      margin: 1rem 0 2rem;
+      color: white;
+    }
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-primary {
+      background: #2c5a2e;
+      color: white;
+    }
+    .btn-primary:hover {
+      background: #1f4621;
+      transform: translateY(-3px);
+    }
+    .btn-outline {
+      background: rgba(0,0,0,0.3);
+      border: 1.5px solid #d4cfb0;
+      color: white;
+    }
+    .btn-outline:hover {
+      background: rgba(210, 200, 150, 0.2);
+      transform: translateY(-3px);
+    }
+    .btn-wa {
+      background: #25D366;
+      color: white;
+    }
+    .btn-wa:hover {
+      background: #1da15b;
+      transform: translateY(-3px);
+    }
+
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translateY(40px);}
+      100% { opacity: 1; transform: translateY(0);}
+    }
+
+    /* Section */
+    section {
+      padding: 80px 5%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 2.5rem;
+      color: #f3efdf;
+    }
+    .section-title:after {
+      content: '';
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(90deg, #7b9c6e, #c8e6b5);
+      display: block;
+      margin: 12px auto 0;
+      border-radius: 4px;
+    }
+
+    /* Glass Card */
+    .glass-card {
+      background: rgba(30, 55, 40, 0.4);
+      backdrop-filter: blur(10px);
+      border-radius: 1.5rem;
+      border: 1px solid rgba(255,255,200,0.1);
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+    }
+    .glass-card:hover {
+      transform: translateY(-5px);
+      background: rgba(45, 75, 55, 0.6);
+    }
+
+    /* Stats */
+    .stats-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .stat-item {
+      text-align: center;
+    }
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #e8e0b0, #c8e6b5);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* SLIDER GALERI - FOTO BESAR & JELAS */
+    .gallery-section {
+      background: #0a1f18;
+      border-radius: 2rem;
+      padding: 2rem 0;
+    }
+    .gallery-slider {
+      width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+      white-space: nowrap;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      padding: 1rem 0 2rem 0;
+      cursor: grab;
+    }
+    .gallery-slider:active {
+      cursor: grabbing;
+    }
+    .gallery-track {
+      display: inline-flex;
+      gap: 1.5rem;
+      padding: 0 2rem;
+    }
+    .slider-item {
+      scroll-snap-align: start;
+      width: 400px;
+      flex-shrink: 0;
+      background: #1a2f25;
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      white-space: normal;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+    .slider-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 35px rgba(0,0,0,0.4);
+    }
+    .slider-item img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+      display: block;
+    }
+    .slider-caption {
+      padding: 1rem;
+      text-align: center;
+      background: rgba(0,0,0,0.6);
+      font-weight: 600;
+      font-size: 1rem;
+      color: #e8e0b0;
+    }
+    .gallery-slider::-webkit-scrollbar {
+      height: 8px;
+    }
+    .gallery-slider::-webkit-scrollbar-track {
+      background: #1a2f28;
+      border-radius: 10px;
+    }
+    .gallery-slider::-webkit-scrollbar-thumb {
+      background: #7b9c6e;
+      border-radius: 10px;
+    }
+    .scroll-hint {
+      text-align: center;
+      margin-top: 0.5rem;
+      font-size: 0.8rem;
+      opacity: 0.7;
+    }
+
+    /* Grids */
+    .facility-grid, .menu-grid, .activity-grid, .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .icon-big {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #c8e6b5;
+    }
+    .testimonial-card {
+      background: rgba(20, 45, 30, 0.6);
+      border-radius: 1.5rem;
+      padding: 1.5rem;
+      transition: all 0.3s;
+    }
+    .testimonial-card:hover {
+      background: rgba(35, 65, 45, 0.8);
+      transform: translateY(-3px);
+    }
+    .rating i {
+      color: #ffb347;
+    }
+
+    /* Booking */
+    .booking-wrapper {
+      background: linear-gradient(145deg, #0f2a20, #071a14);
+      border-radius: 2rem;
+      padding: 2rem;
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    input {
+      background: #1e3a2e;
+      border: 1px solid #5a7b66;
+      padding: 12px 18px;
+      border-radius: 40px;
+      color: white;
+      font-family: 'Poppins', sans-serif;
+      outline: none;
+    }
+    input:focus {
+      border-color: #c8e6b5;
+    }
+    .map-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+    .btn-map {
+      background: #1e3a2e;
+      border: 1px solid #7b9c6e;
+    }
+    .btn-map:hover {
+      background: #2c5a2e;
+    }
+
+    /* Footer */
+    footer {
+      background: linear-gradient(135deg, #051812, #020f0a);
+      padding: 2.5rem 5% 1.5rem;
+      border-top: 1px solid #2c523c;
+    }
+    .footer-content {
+      max-width: 1400px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    .footer-content a {
+      color: #baccaa;
+      text-decoration: none;
+    }
+    .footer-content a:hover {
+      color: #c8e6b5;
+    }
+
+    @media (max-width: 900px) {
+      .nav-links { 
+        display: none; 
+        flex-direction: column; 
+        width: 100%; 
+        background: rgba(7, 26, 20, 0.95);
+        padding: 1rem;
+        border-radius: 1rem;
+        margin-top: 1rem;
+      }
+      .nav-links.active { display: flex; }
+      .menu-icon { display: block; }
+      .hero-content h1 { font-size: 2.2rem;}
+      .section-title { font-size: 1.8rem;}
+      .slider-item { width: 300px; }
+      .slider-item img { height: 260px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <div class="logo"><h2>🌿 Tiu Batu</h2></div>
+    <div class="menu-icon" id="menuToggle"><i class="fas fa-bars"></i></div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Beranda</a></li>
+      <li><a href="#about">Tentang</a></li>
+      <li><a href="#gallery">Galeri</a></li>
+      <li><a href="#homestay">Homestay</a></li>
+      <li><a href="#kuliner">Kuliner</a></li>
+      <li><a href="#aktivitas">Aktivitas</a></li>
+      <li><a href="#testimoni">Ulasan</a></li>
+      <li><a href="#booking">Pesan</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section id="home" class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>Tiu Batu Caffe & Homestay</h1>
+    <p>“Feel The Nature of Sumbawa” — Hidden Paradise Near The River</p>
+    <div class="btn-group">
+      <a href="#booking" class="btn btn-primary"><i class="fas fa-calendar-alt"></i> Book Now</a>
+      <a href="#about" class="btn btn-outline"><i class="fas fa-leaf"></i> Explore Nature</a>
+      <a href="https://wa.me/6281353431470" class="btn btn-wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about">
+  <div class="section-title">Experience Traditional Sumbawa Nature</div>
+  <div class="glass-card" style="text-align: center; max-width: 1000px; margin: auto;">
+    <p style="font-size: 1.1rem; margin-bottom: 1rem;">🏡 Penginapan alami dekat sungai • Rumah kayu aesthetic • Kopi organik khas Marente • Makanan tradisional Sumbawa yang autentik. Rasakan udara segar pegunungan dan kedamaian riverside.</p>
+    <p>📍 F22C+HMQ, Beru, Marenteh, Alas, Sumbawa, NTB 84353</p>
+    <p style="margin-top: 0.5rem;">📞 0813-5343-1470 | ⭐ 4.8/5 dari 99+ ulasan Google</p>
+  </div>
+  <div class="stats-grid" id="statsSection">
+    <div class="stat-item"><div class="stat-number" id="stat1">0</div><p>Ulasan Google</p></div>
+    <div class="stat-item"><div class="stat-number" id="stat2">0</div><p>Rating ★</p></div>
+    <div class="stat-item"><div class="stat-number" id="stat3">0</div><p>Menu Organik</p></div>
+    <div class="stat-item"><div class="stat-number" id="stat4">0</div><p>Riverside</p></div>
+  </div>
+</section>
+
+<!-- GALERI SLIDER - FOTO SEMUA 6 JELAS -->
+<section id="gallery" class="gallery-section">
+  <div class="section-title" style="color: #f3efdf;">Galeri Visual</div>
+  <div class="gallery-slider" id="gallerySlider">
+    <div class="gallery-track">
+      <div class="slider-item">
+        <a href="https://files.catbox.moe/74em5d.jpg" data-lightbox="gallery" data-title="Homestay Tiu Batu">
+          <img src="https://files.catbox.moe/74em5d.jpg" alt="Homestay Tiu Batu" loading="eager">
+        </a>
+        <div class="slider-caption"</div>
+      </div>
+      <div class="slider-item">
+        <a href="https://files.catbox.moe/xdyxjh.jpg" data-lightbox="gallery" data-title="Riverside View">
+          <img src="https://files.catbox.moe/xdyxjh.jpg" alt="Riverside View" loading="eager">
+        </a>
+        <div class="slider-caption"></div>
+      </div>
+      <div class="slider-item">
+        <a href="https://files.catbox.moe/wsss9w.jpg" data-lightbox="gallery" data-title="Cafe Organik">
+          <img src="https://files.catbox.moe/wsss9w.jpg" alt="Cafe Organik" loading="eager">
+        </a>
+        <div class="slider-caption"></div>
+      </div>
+      <div class="slider-item">
+        <a href="https://files.catbox.moe/l8bwsf.jpg" data-lightbox="gallery" data-title="Makanan Tradisional">
+          <img src="https://files.catbox.moe/l8bwsf.jpg" alt="Makanan Tradisional" loading="eager">
+        </a>
+        <div class="slider-caption"></div>
+      </div>
+      <div class="slider-item">
+        <a href="https://files.catbox.moe/dz2ske.jpg" data-lightbox="gallery" data-title="Air Terjun Agal">
+          <img src="https://files.catbox.moe/dz2ske.jpg" alt="Air Terjun Agal" loading="eager">
+        </a>
+        <div class="slider-caption"></div>
+      </div>
+      <div class="slider-item">
+        <a href="https://files.catbox.moe/zpgynu.jpg" data-lightbox="gallery" data-title="">
+          <img src="https://files.catbox.moe/zpgynu.jpg" alt="Trekking Alam" loading="eager">
+        </a>
+        <div class="slider-caption""</div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <i class="fas fa-hand-paper"></i> Geser ke samping untuk lihat semua foto <i class="fas fa-hand-paper"></i>
+  </div>
+</section>
+
+<!-- HOMESTAY -->
+<section id="homestay">
+  <div class="section-title">Homestay Riverside</div>
+  <div class="facility-grid">
+    <div class="glass-card"><i class="fas fa-wind icon-big"></i><h3>AC + Private Bathroom</h3><p>Kamar ber-AC, kamar mandi pribadi</p></div>
+    <div class="glass-card"><i class="fas fa-water icon-big"></i><h3>River View & Garden</h3><p>Pemandangan sungai dari teras kayu</p></div>
+    <div class="glass-card"><i class="fas fa-wifi icon-big"></i><h3>Free WiFi + Terrace</h3><p>Koneksi cepat, teras outdoor</p></div>
+    <div class="glass-card"><i class="fas fa-utensils icon-big"></i><h3>Outdoor Dining</h3><p>Area makan tepi sungai</p></div>
+    <div class="glass-card"><i class="fas fa-mug-hot icon-big"></i><h3>Cafe Organik</h3><p>Kopi tradisional Marente</p></div>
+    <div class="glass-card"><i class="fas fa-hiking icon-big"></i><h3>Trekking Guide</h3><p>Pemandu ke air terjun Agal</p></div>
+    <div class="glass-card"><i class="fas fa-child icon-big"></i><h3>Family Friendly</h3><p>Ramah anak, area bermain</p></div>
+    <div class="glass-card"><i class="fas fa-tree icon-big"></i><h3>Waterfall Trip</h3><p>Perjalanan ke air terjun</p></div>
+  </div>
+</section>
+
+<!-- KULINER -->
+<section id="kuliner">
+  <div class="section-title">Rasakan Cita Rasa Tradisional</div>
+  <div class="menu-grid">
+    <div class="glass-card"><i class="fas fa-fish icon-big"></i><h3>Ikan Nila Goreng</h3><p>Ikan segar dari sungai</p></div>
+    <div class="glass-card"><i class="fas fa-carrot icon-big"></i><h3>Sayur Bening Desa</h3><p>Sayuran organik lokal</p></div>
+    <div class="glass-card"><i class="fas fa-pepper-hot icon-big"></i><h3>Sambal Tradisional</h3><p>Pedas aroma bakar</p></div>
+    <div class="glass-card"><i class="fas fa-mug-hot icon-big"></i><h3>Kopi Marente</h3><p>Kopi pilihan dari gunung</p></div>
+    <div class="glass-card"><i class="fas fa-seedling icon-big"></i><h3>Nasi Bambu</h3><p>Nasi wangi dalam bambu</p></div>
+    <div class="glass-card"><i class="fas fa-apple-alt icon-big"></i><h3>Jus Buah Segar</h3><p>Buah lokal tanpa pengawet</p></div>
+  </div>
+</section>
+
+<!-- AKTIVITAS -->
+<section id="aktivitas">
+  <div class="section-title">Jelajahi Alam Sumbawa</div>
+  <div class="activity-grid">
+    <div class="glass-card"><i class="fas fa-mountain icon-big"></i><h3>Trekking Air Terjun Agal</h3></div>
+    <div class="glass-card"><i class="fas fa-swimmer icon-big"></i><h3>River Tubing</h3></div>
+    <div class="glass-card"><i class="fas fa-sun icon-big"></i><h3>Sunset Riverside</h3></div>
+    <div class="glass-card"><i class="fas fa-mug-hot icon-big"></i><h3>Coffee Experience</h3></div>
+    <div class="glass-card"><i class="fas fa-users icon-big"></i><h3>Village Tour</h3></div>
+    <div class="glass-card"><i class="fas fa-drumstick-bite icon-big"></i><h3>Traditional Culture</h3></div>
+  </div>
+</section>
+
+<!-- TESTIMONI -->
+<section id="testimoni">
+  <div class="section-title">Pendapat Tamu Kami</div>
+  <div class="testimonial-grid">
+    <div class="testimonial-card"><div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div><p>“Tempatnya tenang, alami, dan makanannya luar biasa. Host sangat ramah.”</p><h4>- Andini, Jakarta</h4></div>
+    <div class="testimonial-card"><div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p>“Perfect place untuk healing. Rumah kayu aesthetic, hidden paradise banget.”</p><h4>- Rizki, Sumbawa</h4></div>
+    <div class="testimonial-card"><div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p>“Kopi Marente enak, air terjun keren, recommended untuk back to nature.”</p><h4>- Tim Ekspedisi</h4></div>
+  </div>
+</section>
+
+<!-- BOOKING - Tanpa Google Maps Viewer, Cuma Tombol -->
+<section id="booking">
+  <div class="booking-wrapper">
+    <div class="section-title" style="color:#f5efdc;">Pesan Penginapan Sekarang</div>
+    <form id="bookingForm">
+      <div class="form-grid">
+        <input type="text" id="nama" placeholder="Nama Lengkap" required>
+        <input type="tel" id="phone" placeholder="Nomor HP" required>
+        <input type="date" id="checkin" required>
+        <input type="date" id="checkout" required>
+        <input type="number" id="guests" placeholder="Jumlah Tamu" min="1" required>
+        <button type="submit" class="btn btn-primary" style="background:#1f5e3a;"><i class="fab fa-whatsapp"></i> Booking WhatsApp</button>
+      </div>
+    </form>
+    <div class="map-buttons">
+      <a href="https://www.booking.com" target="_blank" class="btn btn-outline"><i class="fas fa-hotel"></i> Booking.com</a>
+      <a href="https://maps.app.goo.gl/MbtLDAxtq9axfy2y7" target="_blank" class="btn btn-outline btn-map"><i class="fas fa-map-marker-alt"></i> Buka Google Maps</a>
+    </div>
+    <p style="text-align: center; margin-top: 1.5rem; font-size: 0.9rem;">
+      📍 F22C+HMQ, Beru, Marenteh, Alas, Sumbawa, NTB 84353<br>
+      📞 0813-5343-1470
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-content">
+    <div>
+      <h3 style="font-family: Playfair Display;">🌿 Tiu Batu Caffe & Homestay</h3>
+      <p>Feel The Nature of Sumbawa</p>
+      <p>📞 0813-5343-1470</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <p><a href="#home">Beranda</a><br><a href="#booking">Pesan</a><br><a href="#gallery">Galeri</a></p>
+    </div>
+    <div>
+      <h4>Jam Operasional</h4>
+      <p>Cafe: 08.00 - 21.00 WITA<br>Homestay: 24 jam</p>
+    </div>
+    <div>
+      <h4>Alamat</h4>
+      <p>Beru, Marenteh, Alas, Sumbawa, NTB 84353</p>
+    </div>
+  </div>
+  <div style="text-align: center; margin-top: 2rem; font-size: 0.75rem; opacity: 0.7;">
+    © 2026 Tiu Batu Caffe & Homestay - Hidden Paradise Near The River
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+<script>
+  // Navbar scroll
+  window.addEventListener('scroll', function() {
+    const navbar = document.getElementById('navbar');
+    if(window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+
+  // Mobile menu
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinksEl = document.getElementById('navLinks');
+  menuToggle.addEventListener('click', () => navLinksEl.classList.toggle('active'));
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if(targetId === "#") return;
+      const targetElem = document.querySelector(targetId);
+      if(targetElem) {
+        e.preventDefault();
+        targetElem.scrollIntoView({ behavior: 'smooth' });
+        if(navLinksEl.classList.contains('active')) navLinksEl.classList.remove('active');
+      }
+    });
+  });
+
+  // Animasi statistik
+  function animateNumber(el, target, suffix = '') {
+    let current = 0;
+    const step = target / 40;
+    const interval = setInterval(() => {
+      current += step;
+      if(current >= target) {
+        clearInterval(interval);
+        current = target;
+      }
+      el.innerText = Math.floor(current) + suffix;
+    }, 25);
+  }
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) {
+        animateNumber(document.getElementById('stat1'), 99, '+');
+        animateNumber(document.getElementById('stat2'), 48, '/5');
+        animateNumber(document.getElementById('stat3'), 100, '%');
+        animateNumber(document.getElementById('stat4'), 1, ' km');
+        observer.disconnect();
+      }
+    });
+  }, { threshold: 0.4 });
+  observer.observe(document.getElementById('statsSection'));
+
+  // Booking WhatsApp
+  const bookingForm = document.getElementById('bookingForm');
+  bookingForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const nama = document.getElementById('nama').value;
+    const phone = document.getElementById('phone').value;
+    const checkin = document.getElementById('checkin').value;
+    const checkout = document.getElementById('checkout').value;
+    const guests = document.getElementById('guests').value;
+    const message = `Halo Tiu Batu! Saya ${nama} ingin booking homestay.%0A📅 Check-in: ${checkin}%0A📅 Check-out: ${checkout}%0A👥 Tamu: ${guests}%0A📞 No: ${phone}`;
+    window.open(`https://wa.me/6281353431470?text=${message}`, '_blank');
+  });
+
+  // Drag to scroll slider
+  const slider = document.getElementById('gallerySlider');
+  if(slider) {
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+    slider.addEventListener('mousedown', (e) => {
+      isDown = true;
+      slider.style.cursor = 'grabbing';
+      startX = e.pageX - slider.offsetLeft;
+      scrollLeft = slider.scrollLeft;
+    });
+    slider.addEventListener('mouseleave', () => {
+      isDown = false;
+      slider.style.cursor = 'grab';
+    });
+    slider.addEventListener('mouseup', () => {
+      isDown = false;
+      slider.style.cursor = 'grab';
+    });
+    slider.addEventListener('mousemove', (e) => {
+      if(!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - slider.offsetLeft;
+      const walk = (x - startX) * 1.2;
+      slider.scrollLeft = scrollLeft - walk;
+    });
+    slider.style.cursor = 'grab';
+  }
+</script>
+</body>
+</html>
